@@ -2,7 +2,10 @@ const calendar = document.querySelector(".calendar"),
   date = document.querySelector(".date"),
   daysContainer = document.querySelector(".days"),
   prev = document.querySelector(".prev"),
-  next = document.querySelector(".next");
+  next = document.querySelector(".next"),
+  todayBtn = document.querySelector(".today-btn"),
+  gotoBtn = document.querySelector(".goto-btn"),
+  dateInput = document.querySelector(".date-input");
 
 let today = new Date();
 let activeDay;
@@ -35,7 +38,7 @@ function initCalendar() {
   const prevDays = prevLastDay.getDate();
   const lastDate = lastDay.getDate();
   const day = firstDay.getDay();
-  const nextDays = 7 - lastDay.getDay() - 1;
+  const nextDays = 8 - lastDay.getDay() - 1;
 
   //Actualizar fecha en la parte superior del calendario
   date.innerHTML = months[month] + " " + year;
@@ -80,3 +83,37 @@ function initCalendar() {
 }
 
 initCalendar();
+
+// Mes anterior
+function prevMonth() {
+  month--;
+  if (month < 0) {
+    month = 11;
+    year--;
+  }
+  initCalendar();
+}
+
+//Próximo mes
+function nextMonth() {
+  month++;
+  if (month > 11) {
+    month = 0;
+    year++;
+  }
+  initCalendar();
+}
+
+//Agregar detector de eventos en anterior y siguiente
+prev.addEventListener("click", prevMonth);
+next.addEventListener("click", nextMonth);
+
+initCalendar();
+
+//Agreguemos la funcionalidad Ir a fecha e Ir a hoy
+todayBtn.addEventListener("click", () => {
+  today = new Date();
+  month = today.getMonth();
+  year = today.getFullYear();
+  initCalendar();
+});

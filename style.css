@@ -10,10 +10,12 @@
 }
 
 body {
+  position: relative;
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-bottom: 30px;
   background-color: #e2e1dc;
 }
 
@@ -30,7 +32,7 @@ body {
 }
 
 .left {
-  width: 90%;
+  width: 60%;
   padding: 20px;
 }
 
@@ -99,7 +101,7 @@ body {
   text-transform: capitalize;
 }
 
-.calendar .weekdays div {
+.weekdays div {
   width: 14.28%;
   height: 100%;
   display: flex;
@@ -175,16 +177,16 @@ body {
   background-color: var(--primary-clr);
 }
 
-.calendar .event:hover::after {
+.calendar .days .day:hover.event::after {
   background-color: #fff;
 }
 
-.calendar .active.event::after {
+.calendar .days .active.event::after {
   background-color: #fff;
   bottom: 20%;
 }
 
-.calendar .active.event {
+.calendar .days .active.event {
   padding-bottom: 10px;
 }
 
@@ -216,6 +218,7 @@ body {
   border-radius: 5px;
   padding: 0 20px;
   color: var(--primary-clr);
+  border-radius: 5px;
 }
 
 .calendar .goto-today button {
