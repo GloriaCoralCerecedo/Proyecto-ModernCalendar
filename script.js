@@ -117,3 +117,16 @@ todayBtn.addEventListener("click", () => {
   year = today.getFullYear();
   initCalendar();
 });
+
+dateInput.addEventListener("input", (e) => {
+  //Permitir solo números eliminar cualquier otra cosa
+  dateInput.value = dateInput.value.replace(/[^0-9/]/g, "");
+  if (dateInput.value.length === 2) {
+    //Agregue una barra si se ingresaron dos números
+    dateInput.value += "/";
+  }
+  if (dateInput.value.length > 7) {
+    //No permitas más de 7 caracteres
+    dateInput.value = dateInput.value.slice(0, 7);
+  }
+});
