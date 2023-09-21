@@ -299,3 +299,27 @@ body {
   cursor: pointer;
   background-color: linear-gradient(90deg, #3f4458, transparent);
 }
+
+.events .event:nth-child(even) {
+  background: transparent;
+}
+
+.events .event:hover {
+  background: linear-gradient(90deg, var(--primary-clr), transparent);
+}
+
+.events .event .title {
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+}
+
+.events .event .title .event-title {
+  font-size: 1rem;
+  font-weight: 400;
+  margin-left: 20px;
+}
+
+.events .event:hover .title i {
+  color: #fff;
+}
